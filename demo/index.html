@@ -1,11 +1,58 @@
-<div id="ascii"></div>
-<script src="../dist/ascii-art.bundle.js"></script>
-<script>
-  AsciiArt.convert('../src/image.png', { width: 80 })
-    .then(function(ascii) {
-      document.getElementById('ascii').textContent = ascii;
-    })
-    .catch(function(err) {
-      console.error(err);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .result {
+      white-space: pre;
+      font-family: monospace;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ASCII Art Generator</h1>
+    <p>Upload an image to convert it to ASCII art.</p>
+    <input type="file" id="imageUpload" accept="image/*">
+    <div id="result" class="result"></div>
+  </div>
+
+  <!-- 引入 ASCII-art.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ascii-art.js/dist/ascii-art.bundle.js"></script>
+  <script>
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imageData = e.target.result;
+        AsciiArt.convert(imageData, { width: 100 })
+          .then(ascii => {
+            document.getElementById('result').textContent = ascii;
+          })
+          .catch(error => {
+            console.error('Error converting image:', error);
+            document.getElementById('result').textContent = 'Error converting image.';
+          });
+      };
+      reader.readAsDataURL(file);
     });
-</script>
+  </script>
+</body>
+</html>
