@@ -1,6 +1,8 @@
 # Img2ASCIIx
+![Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg](https://jsdelivrcn.dev.tc/gh/YShenZe/Blog-Static-Resource@main/images/Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![npm](https://img.shields.io/npm/v/img2asciix)](https://www.npmjs.com/package/img2asciix)
 
 一个轻量级的 JavaScript 图片转 ASCII 艺术库，支持浏览器和 Node.js 环境。
 
