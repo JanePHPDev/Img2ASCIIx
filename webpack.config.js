@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/ascii-art.js',
+  entry: './src/img2asciix.js',
   output: {
-    filename: 'ascii-art.bundle.js',
+    filename: 'img2asciix.bundle.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'AsciiArt',
     libraryTarget: 'umd',

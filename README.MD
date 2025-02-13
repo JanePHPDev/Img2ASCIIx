@@ -1,5 +1,4 @@
-# Img2ASCIIX
-![Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg](https://jsdelivrcn.dev.tc/gh/YShenZe/Blog-Static-Resource@main/images/Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg)
+# ASCII-Art.js
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,10 +15,10 @@
 或者使用CDN引入：
 ```html
 // JsDelivr引入
-<script src="https://cdn.Jsdelivr.net/npm/ascii-art-js@1.0.1/dist/ascii-art.bundle.js"></script>
+<script src="https://cdn.Jsdelivr.net/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
 
 // JsDelivr中国站
-<script src="https://jsdelivrcn.dev.tc/npm/ascii-art-js@1.0.1/dist/ascii-art.bundle.js"></script>
+<script src="https://jsdelivrcn.dev.tc/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
 
 
 
@@ -77,3 +76,47 @@ AsciiArt.convert(imageData, { width: 100 })
 2. 输出高度默认保持原图比例
 3. Node.js 需要安装 canvas 依赖
 4. 字符集建议使用等宽字体显示
+
+# 开发文档
+
+## 架构设计
+### 模块结构
+```javascript
+(function(global, factory) {
+  // UMD 模块定义
+})(global, function() {
+  // 核心逻辑
+  return {
+    convert: convert
+  };
+});
+```
+
+## 核心 API
+### `convert(image, options)`
+#### 参数
+- `image`: 支持类型
+  - String: 图片 URL（支持 data URL）
+  - Image 对象
+- `options`: 配置对象
+
+#### 处理流程
+1. 图片加载 → 2. 创建画布 → 3. 绘制缩放 → 4. 像素分析 → 5. ASCII 生成
+
+## 关键函数
+### `createCanvas(width, height)`
+支持环境检测：
+- 浏览器环境：使用 `document.createElement`
+- Web Worker：使用 `OffscreenCanvas`
+- Node.js：需要安装 `canvas` 依赖
+
+### 亮度计算算法
+```javascript
+const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+const charIndex = Math.floor((brightness / 255) * (ramp.length - 1));
+```
+
+## 性能优化
+1. 使用单次 `drawImage` 完成缩放
+2. 批量像素处理（O(n) 复杂度）
+3. 预计算亮度值
