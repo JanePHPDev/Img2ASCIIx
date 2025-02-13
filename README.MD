@@ -13,6 +13,10 @@
 ```
 
 ### Node.js 环境
+
+> [!TIP]
+> Nodejs环境下需要提供polyfill，否则抛出异常，不支持Image对象、不支持Canvas。
+
 需要先安装依赖：
 ```bash
 npm install ascii-art-js
