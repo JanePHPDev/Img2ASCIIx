@@ -12,6 +12,18 @@
 <script src="dist/ascii-art.bundle.js"></script>
 ```
 
+或者使用CDN引入：
+```html
+// JsDelivr引入
+<script src="https://cdn.Jsdelivr.net/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
+
+// JsDelivr中国站
+<script src="https://jsdelivrcn.dev.tc/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
+
+
+
+```
+
 ### Node.js 环境
 
 > [!TIP]
