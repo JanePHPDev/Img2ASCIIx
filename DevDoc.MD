@@ -90,4 +90,4 @@ typeof Image !== 'undefined' → 使用原生 Image
 ## 贡献指南
 1. 提交前运行 `npm test`
 2. 遵循 ESLint 规则
-3. 更新测试快照：`npm test -- -u
+3. 更新测试快照：`npm test -- -u`
