@@ -1,4 +1,4 @@
-# ASCII-Art.js
+# Img2ASCIIx
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,16 +9,16 @@
 ### 浏览器环境
 直接引入打包后的文件：
 ```html
-<script src="dist/ascii-art.bundle.js"></script>
+<script src="dist/img2asciix.bundle.js"></script>
 ```
 
 或者使用CDN引入：
 ```html
 // JsDelivr引入
-<script src="https://cdn.Jsdelivr.net/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
+<script src="https://cdn.Jsdelivr.net/npm/img2asciix/dist/img2asciix.bundle.js"></script>
 
 // JsDelivr中国站
-<script src="https://jsdelivrcn.dev.tc/npm/ascii-art-js@1.0.0/dist/ascii-art.bundle.js"></script>
+<script src="https://jsdelivrcn.dev.tc/npm/img2asciix/dist/img2asciix.bundle.js"></script>
 
 
 
@@ -31,11 +31,11 @@
 
 需要先安装依赖：
 ```bash
-npm install ascii-art-js
+npm install img2asciix
 ```
 然后通过 require 引入：
 ```javascript
-const AsciiArt = require('ascii-art-js');
+const AsciiArt = require('img2asciix');
 ```
 
 ## 快速开始
