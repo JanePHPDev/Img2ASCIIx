@@ -13,13 +13,13 @@
 ```
 
 ### Node.js 环境
-需要先安装 canvas 依赖：
+需要先安装依赖：
 ```bash
-npm install canvas
+npm install ascii-art-js
 ```
 然后通过 require 引入：
 ```javascript
-const AsciiArt = require('ascii-art.js');
+const AsciiArt = require('ascii-art-js');
 ```
 
 ## 快速开始
