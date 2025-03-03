@@ -20,7 +20,7 @@
 <script src="https://cdn.Jsdelivr.net/npm/img2asciix/dist/img2asciix.bundle.js"></script>
 
 // JsDelivr中国站
-<script src="https://jsdelivrcn.dev.tc/npm/img2asciix/dist/img2asciix.bundle.js"></script>
+<script src="https://cdn.mengze.vip/npm/img2asciix/dist/img2asciix.bundle.js"></script>
 
 
 
