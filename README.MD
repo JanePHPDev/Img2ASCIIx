@@ -26,7 +26,7 @@
 ### Node.js 环境
 
 > [!NOTE]
-> Node.js 环境会自动加载 polyfill（需安装 `canvas` 包），支持 `Image` 对象和 `Canvas`，无需手动配置。
+> 2.0.0以上版本 Node.js 环境会自动加载 polyfill，支持 `Image` 对象和 `Canvas`，无需手动配置。
 
 需要先安装依赖：
 ```bash
