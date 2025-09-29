@@ -1,10 +1,10 @@
 # Img2ASCIIx
-![Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg](https://jsdelivrcn.dev.tc/gh/YShenZe/Blog-Static-Resource@main/images/Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg)
+![Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg](https://cdn.mengze.vip/gh/YShenZe/Blog-Static-Resource@main/images/Screenshot_2025-02-13-17-23-09-09_a87fd7db6caa850b517aa6fa9d2fcd0e.jpg)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/img2asciix)](https://www.npmjs.com/package/img2asciix)
 
-一个轻量级的 JavaScript 图片转 ASCII 艺术库，支持浏览器和 Node.js 环境。
+一个零依赖、体积小的轻量JavaScript图片转 ASCII 库，支持浏览器、Nodejs及小程序，甚至是跨端应用（Uniapp、Electron ）。支持自定义字符集、Web Worker 多线程，一键生成高还原度字符画，可用于 CLI 工具、前端特效、日志水印、Discord/Slack Bot 等场景，API 简洁，开箱即用。
 
 ## 安装
 
@@ -63,62 +63,3 @@ AsciiArt.convert(imageData, { width: 100 })
 | width | number | 100 | 输出宽度（字符数） |
 | height | number | 自动计算 | 输出高度（字符数） |
 | asciiRamp | string | `@%#*+=-:. ` | 灰度映射字符集（从密到疏） |
-
-## 示例输出
-```
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@%%%%%%%%%#####*********+++++=======::::::::...........
-@@@%%%%%%%%%#####*********++++++======::::::::.............
-@@%%%%%%%%%#####*********++++++======::::::::..............
-@%%%%%%%%%#####*********++++++======::::::::...............
-```
-
-## 注意事项
-1. 需要确保图片源允许跨域访问
-2. 输出高度默认保持原图比例
-3. Node.js 需要安装 canvas 依赖
-4. 字符集建议使用等宽字体显示
-
-# 开发文档
-
-## 架构设计
-### 模块结构
-```javascript
-(function(global, factory) {
-  // UMD 模块定义
-})(global, function() {
-  // 核心逻辑
-  return {
-    convert: convert
-  };
-});
-```
-
-## 核心 API
-### `convert(image, options)`
-#### 参数
-- `image`: 支持类型
-  - String: 图片 URL（支持 data URL）
-  - Image 对象
-- `options`: 配置对象
-
-#### 处理流程
-1. 图片加载 → 2. 创建画布 → 3. 绘制缩放 → 4. 像素分析 → 5. ASCII 生成
-
-## 关键函数
-### `createCanvas(width, height)`
-支持环境检测：
-- 浏览器环境：使用 `document.createElement`
-- Web Worker：使用 `OffscreenCanvas`
-- Node.js：需要安装 `canvas` 依赖
-
-### 亮度计算算法
-```javascript
-const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-const charIndex = Math.floor((brightness / 255) * (ramp.length - 1));
-```
-
-## 性能优化
-1. 使用单次 `drawImage` 完成缩放
-2. 批量像素处理（O(n) 复杂度）
-3. 预计算亮度值
