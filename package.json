@@ -1,16 +1,21 @@
 {
     "name": "img2asciix",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "src/img2asciix.js",
     "scripts": {
         "build": "npx webpack --config webpack.config.js"
     },
-    "keywords": ["ASCII"],
+    "keywords": [
+        "ASCII"
+    ],
     "author": "YShenZe",
     "license": "MIT",
-    "description": "一个轻量级的 JavaScript 图片转 ASCII 艺术库，支持浏览器和 Node.js 环境。",
+    "description": "一个零依赖、体积小的轻量JavaScript图片转 ASCII 库，支持浏览器、Nodejs及小程序，甚至是跨端应用（Uniapp、Electron ）。支持自定义字符集、Web Worker 多线程，一键生成高还原度字符画，可用于 CLI 工具、前端特效、日志水印、Discord/Slack Bot 等场景，API 简洁，开箱即用。",
     "devDependencies": {
         "webpack": "^5.97.1",
         "webpack-cli": "^6.0.1"
+    },
+    "dependencies": {
+        "canvas": "^3.2.0"
     }
 }

@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/img2asciix)](https://www.npmjs.com/package/img2asciix)
 
-一个零依赖、体积小的轻量JavaScript图片转 ASCII 库，支持浏览器、Nodejs及小程序，甚至是跨端应用（Uniapp、Electron ）。支持自定义字符集、Web Worker 多线程，一键生成高还原度字符画，可用于 CLI 工具、前端特效、日志水印、Discord/Slack Bot 等场景，API 简洁，开箱即用。
+一个浏览器零依赖、体积小的轻量JavaScript图片转 ASCII 库，支持浏览器、Nodejs及小程序，甚至是跨端应用（Uniapp、Electron）。Node.js 环境需安装 `canvas` 作为 polyfill。支持自定义字符集、Web Worker 多线程，一键生成高还原度字符画，可用于 CLI 工具、前端特效、日志水印、Discord/Slack Bot 等场景，API 简洁，开箱即用。
 
 ## 安装
 
@@ -16,20 +16,17 @@
 
 或者使用CDN引入：
 ```html
-// JsDelivr引入
-<script src="https://cdn.Jsdelivr.net/npm/img2asciix/dist/img2asciix.bundle.js"></script>
+<!-- JsDelivr引入 -->
+<script src="https://cdn.jsdelivr.net/npm/img2asciix/dist/img2asciix.bundle.js"></script>
 
-// JsDelivr中国站
+<!-- JsDelivr中国站 -->
 <script src="https://cdn.mengze.vip/npm/img2asciix/dist/img2asciix.bundle.js"></script>
-
-
-
 ```
 
 ### Node.js 环境
 
-> [!TIP]
-> Nodejs环境下需要提供polyfill，否则抛出异常，不支持Image对象、不支持Canvas。
+> [!NOTE]
+> Node.js 环境会自动加载 polyfill（需安装 `canvas` 包），支持 `Image` 对象和 `Canvas`，无需手动配置。
 
 需要先安装依赖：
 ```bash
@@ -62,4 +59,4 @@ AsciiArt.convert(imageData, { width: 100 })
 |------|------|---------|-------------|
 | width | number | 100 | 输出宽度（字符数） |
 | height | number | 自动计算 | 输出高度（字符数） |
-| asciiRamp | string | `@%#*+=-:. ` | 灰度映射字符集（从密到疏） |
+| asciiRamp | string | `@%#*+=-:. ` | 灰度映射字符集（从密到疏） 

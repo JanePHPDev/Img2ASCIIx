@@ -1,5 +1,6 @@
 # 忽略 Node.js 依赖文件
 node_modules/
+package-lock.json
 
 # 忽略临时文件
 *.log

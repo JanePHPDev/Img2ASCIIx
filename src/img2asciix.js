@@ -7,6 +7,8 @@
  */
 (function(global, factory) {
   if (typeof module === 'object' && typeof module.exports === 'object') {
+    // 在 Node.js 环境中自动加载 polyfill
+    require('./lib/polyfill.js');
     module.exports = factory();
   } else {
     global.AsciiArt = factory();
